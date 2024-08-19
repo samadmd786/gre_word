@@ -69,6 +69,16 @@ flashcard  = dict()
 print("index: ", last_word_index)
 # for i in data[:]:
 for i in data[start_word_index:last_word_index+1]:
-    flashcard[i[1]] = str(i[2])+"\n "+str(i[3])
+    flashcard[i[1]] = "meaning: "+ str(i[2])+"\n"+"Mnenomic: "+str(i[3])
 
 print(flashcard.keys())
+
+for word, meaning in flashcard.items():
+    if word == "Word":
+        continue
+    print("Word: ", word)
+    print()
+    input("### press any key to reval meaning ###")
+    print()
+    print(meaning)
+    print()
