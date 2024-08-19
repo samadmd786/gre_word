@@ -72,7 +72,7 @@ sheet = wb.active
 # read all data from excel file
 data = []
 for row in sheet.iter_rows(values_only=True):
-    data.append(list(row))
+    data.append([str(cell).strip().replace('\n', ' ') for cell in row])
 total = len(data)
 flashcard  = dict()
 
@@ -87,7 +87,7 @@ for word, meaning in flashcard.items():
         continue
     print("Word: ", word)
     print()
-    input("### press any key to reval meaning ###")
+    input("### press any key to reveal meaning ###")
     print()
     print(meaning)
     print()
