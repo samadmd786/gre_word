@@ -42,10 +42,20 @@ print("start_index: ", args_start_index)
 
 
 if args_start_index != None:
+    # args_start_index must be greater than zero and smaller than aa.length
+    if args_start_index < 0 or args_start_index > len(aa):
+        print("Error: start_index must be greater than zero and smaller than 647")
+        exit()
     start_word_index = args_start_index
     
 if args_end_index != None:
-    # args_end_index = len(aa) - 1
+    # args_end_index must be greater than zero and smaller than aa.length
+    if args_end_index < 0 or args_end_index > len(aa):
+        print("Error: end_index must be greater than zero and smaller than 647")
+        exit()
+    if args_end_index < args_start_index:
+        print("Error: end_index must be greater than start_index")
+        exit()
     last_word_index = args_end_index
     print("end index: ", args_end_index)
 
@@ -71,7 +81,6 @@ print("index: ", last_word_index)
 for i in data[start_word_index:last_word_index+1]:
     flashcard[i[1]] = "meaning: "+ str(i[2])+"\n"+"Mnenomic: "+str(i[3])
 
-print(flashcard.keys())
 
 for word, meaning in flashcard.items():
     if word == "Word":
